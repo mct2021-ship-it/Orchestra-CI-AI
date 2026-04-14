@@ -24,7 +24,8 @@ export function Welcome({ onNavigate, onSelectProject, userName, companyProfile,
 
   const globalFeatures = [
     { 
-      id: 'taxonomy', 
+      id: 'settings', 
+      subTab: 'taxonomy',
       label: 'Global Taxonomy', 
       icon: Tags, 
       description: 'Standardize your language and data structures across the entire organization.',
@@ -303,7 +304,7 @@ export function Welcome({ onNavigate, onSelectProject, userName, companyProfile,
   );
 }
 
-function FlipCard({ feature, index, onNavigate }: { feature: any, index: number, onNavigate: (tab: string) => void }) {
+function FlipCard({ feature, index, onNavigate }: { feature: any, index: number, onNavigate: (tab: string, subTab?: string) => void }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
@@ -348,7 +349,7 @@ function FlipCard({ feature, index, onNavigate }: { feature: any, index: number,
           <button 
             onClick={(e) => {
               e.stopPropagation();
-              onNavigate(feature.id);
+              onNavigate(feature.id, feature.subTab);
             }}
             className="mt-2 text-sm md:text-xs font-bold text-white hover:text-indigo-200 underline decoration-indigo-400 underline-offset-4 transition-colors"
           >

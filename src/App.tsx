@@ -475,6 +475,10 @@ function AppContent() {
       setActiveSubTab(subTab || null);
     }
 
+    if (tab === 'settings') {
+      setActiveSubTab(subTab || null);
+    }
+
     if (tab === currentTab && !subTab) {
       if (tab === 'journeys') setActiveJourneyId(null);
       if (tab === 'tasks') {
@@ -883,6 +887,7 @@ function AppContent() {
             setUsers={handleSetUsers}
             currentUser={currentUser}
             onDeleteItem={handleDeleteItem}
+            initialSection={activeSubTab as any}
           />
         );
       case 'audit_log':

@@ -24,11 +24,12 @@ interface SettingsProps {
   setUsers: (users: User[] | ((prev: User[]) => User[])) => void;
   currentUser?: User | null;
   onDeleteItem?: (item: any, type: any) => void;
+  initialSection?: 'general' | 'taxonomy' | 'company' | 'users' | 'billing';
 }
 
-export function Settings({ projects, setProjects, products, setProducts, services, setServices, isDarkMode, setIsDarkMode, companyProfile, onUpdateProfile, users, setUsers, currentUser, onDeleteItem }: SettingsProps) {
+export function Settings({ projects, setProjects, products, setProducts, services, setServices, isDarkMode, setIsDarkMode, companyProfile, onUpdateProfile, users, setUsers, currentUser, onDeleteItem, initialSection }: SettingsProps) {
   const { updateUser } = useAuth();
-  const [activeSection, setActiveSection] = useState<'general' | 'taxonomy' | 'company' | 'users' | 'billing'>('general');
+  const [activeSection, setActiveSection] = useState<'general' | 'taxonomy' | 'company' | 'users' | 'billing'>(initialSection || 'general');
 
   // General Settings State
   const [generalSettings, setGeneralSettings] = useState({

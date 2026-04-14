@@ -497,6 +497,52 @@ app.get('/api/google/reviews', async (req, res) => {
   }
 });
 
+// HubSpot Tickets Mock Route
+app.get('/api/hubspot/tickets', (req, res) => {
+  res.json({
+    tickets: [
+      { id: '1', subject: 'Login issue', status: 'Open', priority: 'High', createdAt: new Date().toISOString() },
+      { id: '2', subject: 'Feature request: Export to PDF', status: 'Closed', priority: 'Medium', createdAt: new Date().toISOString() }
+    ]
+  });
+});
+
+// Salesforce Reviews Mock Route
+app.get('/api/salesforce/reviews', (req, res) => {
+  res.json({
+    reviews: [
+      { id: '1', author: 'Salesforce User', rating: 5, text: 'Great integration!', date: new Date().toISOString() }
+    ]
+  });
+});
+
+// Zendesk Reviews Mock Route
+app.get('/api/zendesk/reviews', (req, res) => {
+  res.json({
+    reviews: [
+      { id: '1', author: 'Zendesk User', rating: 4, text: 'Very helpful support.', date: new Date().toISOString() }
+    ]
+  });
+});
+
+// Slack Reviews Mock Route
+app.get('/api/slack/reviews', (req, res) => {
+  res.json({
+    reviews: [
+      { id: '1', author: 'Slack User', rating: 5, text: 'Great communication tool!', date: new Date().toISOString() }
+    ]
+  });
+});
+
+// Intercom Reviews Mock Route
+app.get('/api/intercom/reviews', (req, res) => {
+  res.json({
+    reviews: [
+      { id: '1', author: 'Intercom User', rating: 5, text: 'Excellent customer engagement.', date: new Date().toISOString() }
+    ]
+  });
+});
+
 async function startServer() {
   console.log('Starting server initialization...');
   // Vite middleware for development
